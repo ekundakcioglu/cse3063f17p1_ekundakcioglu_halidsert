@@ -10,21 +10,33 @@ public class Monopoly {
 		
 		int totalPlayer = 0;
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("How many players will be playing: ");
-		totalPlayer = scanner.nextInt();
-		Player[] players = new Player[totalPlayer];
-		
-		for(int i = 0;i < players.length;i++){
-			players[i] = new Player("Player " + (i + 1), 0, 2000);
+		while (totalPlayer < 2 || totalPlayer > 8) {
+			try {
+				System.out.println("How many people are playing?");
+				System.out.print("Players (2 - 8): ");
+				totalPlayer = scanner.nextInt();
+			}
+			catch(Exception e) {
+				System.err.println("Error: Number too large.");
+				continue;
+			}
+			if(totalPlayer > 8) {
+				System.err.println("Error: Invalid player count.");
+			}
 		}
 		
-		
+		Player[] players = new Player[totalPlayer];		
+		for(int i = 0;i < players.length;i++){
+			System.out.print("Please enter a player name : ");
+			players[i] = new Player(scanner.next(), 0, 2000);
+		}
 			
-		for(int j=0; j<10; j++) {
-			System.out.println("lap "+(j+1));
+		for(int j=1; j<10; j++) {
+			System.out.println("turn "+j);
 			for(int i = 0; i<totalPlayer; i++) {
+				System.out.println(players[i].getName() + " is at the square "+players[i].getLocation());
 				players[i].movePlayer();
-				System.out.println(players[i].getName() + " moved to the "+ players[i].getLocation() + "th square.");
+				System.out.println(players[i].getName() + " moved to the square "+ players[i].getLocation()+"\n");
 			}
 		}
 	}
