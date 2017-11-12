@@ -1,4 +1,4 @@
-
+package CSE3063;
 public class City extends Square{
 	int cost;
 	public City(String name, int location, int cost) {

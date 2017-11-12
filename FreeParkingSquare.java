@@ -1,7 +1,6 @@
 
-public class GoSquare extends Square {
-
-	public GoSquare(String name, int location) {
+public class FreeParkingSquare extends Square{
+	public FreeParkingSquare(String name, int location) {
 		super(name, location);
 	}
 	
@@ -14,3 +13,4 @@ public class GoSquare extends Square {
 	}
 
 }
+

@@ -1,7 +1,7 @@
 
 public class Player {
 	String name;
-	int location,money,amount;
+	int location,money;
 	
 	public Player(String playerName, int location, int money) {
 		name = playerName;	
@@ -21,15 +21,17 @@ public class Player {
 		return money;
 	}
 	
-	public int increaseMoney() {
-		return money+amount;
+	public int increaseMoney(int amount) {
+		money = money + amount;
+		return money;
 	}
 	
-	public int decreaseMoney() {
-		return money-amount;
+	public int decreaseMoney(int amount) {
+		money = money - amount;
+		return money;
 	}
-	public int movePlayer() {
-		location = (location + 2 + (int)(Math.random()*10)) % 40;
+	public int movePlayer(int dicevalue1, int dicevalue2) {
+		location = (location + dicevalue1 + dicevalue2) % 40;
 		return location;
 	}
 }
